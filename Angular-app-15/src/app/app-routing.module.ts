@@ -14,7 +14,6 @@ const routes: Routes = [
     path: 'login',
     // pathMatch: 'full',
     component: LoginComponent,
-    data: { name: 'BuiTheAnh' },
     canActivate: [
       AuthGuard
     ],
