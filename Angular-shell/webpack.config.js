@@ -2,18 +2,10 @@ const { container } = require('webpack');
 const { Configuration } = require('webpack')
 
 
-/** @returns {Configuration}} */
-module.exports = (env, args) => {
+/** @type {Configuration}} */
+const WebpackConfigurations = {
+   output: {
 
-   return {
-      output: {
-         publicPath: 'http://localhost:4200',
-      },
-      optimization: {
-         runtimeChunk: false,
-      },
-      plugins: [
-       
-      ]
    }
-}
+};
+module.exports = WebpackConfigurations;

@@ -130,6 +130,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Angular-shell"
+    }
+  },
+  "defaultProject": "Angular-shell",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,38 @@
+const { Configuration } = require('webpack');
+const { container } = require('webpack');
+const path = require('path');
+
+
+/**
+ * @type {Configuration}
+ */
+const Configurations = {
+    name: 'angular-app-version-15',
+    devServer: {
+        port: 3001,
+        host: '0.0.0.0',
+        allowedHosts: 'all',
+        historyApiFallback: true
+    },
+    output: {
+        path: path.resolve(__dirname,'./build'),
+        publicPath: 'auto'
+    },
+    module: {},
+    plugins: [
+        new container.ModuleFederationPlugin({
+            // remoteType: ''
+            name: 'angular_app_15',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './NotFound': './src/app/modules/admin/notfound.component.ts',
+            },
+            remotes: {},
+            shared: {
+                
+            }
+        })
+    ],
+};
+
+module.exports = Configurations;

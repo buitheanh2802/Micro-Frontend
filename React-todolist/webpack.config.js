@@ -1,4 +1,5 @@
 const Webpack = require("webpack");
+const { container } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
@@ -34,6 +35,14 @@ module.exports = (env, args) => {
                 title: 'hello world',
                 showErrors: true,
             }),
+            new container.ModuleFederationPlugin({
+                name: 'react_todolist',
+                filename: 'remoteEntry.js',
+                exposes: {},
+                remotes: {
+                    'AngularApp1': 'angular_app_15@http://localhost:3001/remoteEntry.js'
+                }
+            }),
             !isDev && new CleanWebpackPlugin({
 
             })
@@ -46,7 +55,7 @@ module.exports = (env, args) => {
             path: path.resolve(__dirname, './build'),
             environment: {
                 arrowFunction: false,
-                asyncFunction: false,
+                asyncFunction: true,
                 destructuring: false,
                 bigIntLiteral: false,
                 const: false,
