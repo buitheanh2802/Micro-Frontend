@@ -16,7 +16,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/Angular-shell",
             "index": "src/index.html",
@@ -31,7 +31,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "./webpack.config.js",
+              "mergeStrategies": {
+                "externals": "replace"
+              }
+            }
           },
           "configurations": {
             "production": {
@@ -65,7 +71,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "Angular-shell:build"
           },
@@ -76,13 +82,13 @@
           }
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@angular-builders/custom-webpack:extract-i18n",
           "options": {
             "browserTarget": "Angular-shell:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/custom-webpack:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
@@ -99,7 +105,7 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-builders/custom-webpack:tslint",
           "options": {
             "tsConfig": [
               "tsconfig.app.json",
@@ -112,7 +118,7 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@angular-builders/custom-webpack:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "Angular-shell:serve"

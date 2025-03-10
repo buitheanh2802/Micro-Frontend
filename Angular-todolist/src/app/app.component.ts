@@ -38,6 +38,7 @@ import {
     providers: [
         // FormControl
     ],
+    standalone: true
 })
 export class AppComponent implements OnInit {
     constructor(private TodoServices: TodosService) {}
