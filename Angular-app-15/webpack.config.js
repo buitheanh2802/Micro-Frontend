@@ -16,7 +16,8 @@ const Configurations = {
     },
     output: {
         path: path.resolve(__dirname,'./build'),
-        publicPath: 'auto'
+        publicPath: 'auto',
+        uniqueName: 'angular_app_15'
     },
     module: {},
     plugins: [
