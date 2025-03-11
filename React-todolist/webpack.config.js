@@ -40,15 +40,25 @@ module.exports = (env, args) => {
                 filename: 'remoteEntry.js',
                 exposes: {},
                 remotes: {
-                    'AngularApp1': 'angular_app_15@http://localhost:3001/remoteEntry.js'
+                    'AngularApp': 'AngularApp@http://localhost:3001/remoteEntry.js'
                 },
                 shared: {
                     react: {
                       singleton: true,
+                      eager: true
                     },
-                    "react-dom/client": {
-                      singleton: true,
+                    "@angular/core": {
+                        singleton: true,
+                        eager: true
                     },
+                    "@angular/common": {
+                        singleton: true,
+                        eager: true
+                    },
+                    "@angular/router": {
+                        singleton: true,
+                        eager: true
+                    }
                 },
             }),
             !isDev && new CleanWebpackPlugin({
@@ -59,23 +69,23 @@ module.exports = (env, args) => {
             main: path.resolve(__dirname, './src/index.tsx')
         },
         output: {
-            publicPath: '/',
+            publicPath: 'auto',
             path: path.resolve(__dirname, './build'),
             environment: {
-                arrowFunction: false,
-                asyncFunction: true,
-                destructuring: false,
-                bigIntLiteral: false,
-                const: false,
-                document: false,
-                dynamicImport: false,
-                dynamicImportInWorker: false,
-                forOf: false,
-                globalThis: false,
-                module: false,
-                nodePrefixForCoreModules: false,
-                optionalChaining: false,
-                templateLiteral: false
+                // arrowFunction: false,
+                // asyncFunction: true,
+                // destructuring: false,
+                // bigIntLiteral: false,
+                // const: false,
+                // document: false,
+                // dynamicImport: false,
+                // dynamicImportInWorker: false,
+                // forOf: false,
+                // globalThis: false,
+                // module: false,
+                // nodePrefixForCoreModules: false,
+                // optionalChaining: false,
+                // templateLiteral: false
             }
         },
         resolve: {
@@ -84,29 +94,30 @@ module.exports = (env, args) => {
         devServer: {
             allowedHosts: 'all',
             port: 3000,
-            static: {
-                publicPath: '/',
-                directory: path.resolve(__dirname,'public'),
-                watch: true
-            },
-            open: false,
-            historyApiFallback: true,
-            client: {
-                logging: 'info',
-                overlay: {
-                    errors: true,
-                    runtimeErrors: false,
-                    warnings: false,
-                },
-                progress: false,
-                reconnect: true,
-                webSocketTransport: 'ws',
-                // webSocketURL: 'auto://cms.vietnamnet.vn/ws',
-            },
+            // static: {
+            //     publicPath: '/',
+            //     directory: path.resolve(__dirname,'public'),
+            //     watch: true
+            // },
+            // open: false,
+            // historyApiFallback: true,
+            // client: {
+            //     logging: 'info',
+            //     overlay: {
+            //         errors: true,
+            //         runtimeErrors: false,
+            //         warnings: false,
+            //     },
+            //     progress: false,
+            //     reconnect: true,
+            //     webSocketTransport: 'ws',
+            //     // webSocketURL: 'auto://cms.vietnamnet.vn/ws',
+            // },
             // proxy: {}
         },
         optimization: {
-            splitChunks: false
+            // splitChunks: false
+            // runtimeChunk: 'single'
         }
     }
 }

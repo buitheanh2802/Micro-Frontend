@@ -1,44 +1,56 @@
-const { Configuration } = require('webpack');
-const { container } = require('webpack');
-const path = require('path');
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
+module.exports = {
+  output: {
+    uniqueName: "AngularApp",
+    publicPath: "auto",
+    scriptType:'text/javascript'
+  },
+  optimization: {
+    runtimeChunk: false
+  },
+  resolve: {
+    // alias: {
+    //   ...sharedMappings.getAliases(),
+    // }
+  },
+  devServer: {
+    port: 3001,
+    host: '0.0.0.0',
+    allowedHosts: 'all',
+    historyApiFallback: true
+  },
+  experiments: {
+    // outputModule: true
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+        // library: { type: "module" },
 
-/**
- * @type {Configuration}
- */
-const Configurations = {
-    name: 'angular-app-version-15',
-    devServer: {
-        port: 3001,
-        host: '0.0.0.0',
-        allowedHosts: 'all',
-        historyApiFallback: true
-    },
-    output: {
-        path: path.resolve(__dirname,'./build'),
-        publicPath: 'http://localhost:3001',
-        uniqueName: 'angular_app_15'
-    },
-    module: {},
-    plugins: [
-        new container.ModuleFederationPlugin({
-            // remoteType: ''
-            name: 'angular_app_15',
-            filename: 'remoteEntry.js',
-            exposes: {
-                './NotFound': './src/app/modules/admin/notfound.component.ts',
-            },
-            remotes: {},
-            shared: {
-                "@angular/core": { singleton: true, eager: true },
-                "@angular/common": { singleton: true, eager: true },
-                "@angular/router": { singleton: true, eager: true },
-            }
-        })
-    ],
-    optimization: {
-        splitChunks: false
-    }
+        // For remotes (please adjust)
+        name: "AngularApp",
+        filename: "remoteEntry.js",
+        exposes: {
+            
+            './Notfound':'./src/app/modules/admin/notfound.component.ts'
+        },
+
+        // For hosts (please adjust)
+        // remotes: {
+        //     "mfe1": "http://localhost:3000/remoteEntry.js",
+
+        // },
+
+        shared: {
+            "@angular/core": { singleton: true },
+            "@angular/common": { singleton: true },
+            "@angular/common/http": { singleton: true },
+            "@angular/router": { singleton: true },
+  
+          //   ...sharedMappings.getDescriptors()
+          }
+
+    }),
+    // sharedMappings.getPlugin()
+  ],
 };
-
-module.exports = Configurations;

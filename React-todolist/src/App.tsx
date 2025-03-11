@@ -1,8 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
-
 type Props = {};
 
-const NotfoundComponent = React.lazy(() => import("AngularApp1/NotFound"));
+type Scope = unknown;
+type Factory = () => any;
+
+type Container = {
+  init(shareScope: Scope): void;
+  get(module: string): Factory;
+};
+// const NotfoundComponent = React.lazy(() => import("AngularApp/notfound"));
+declare const __webpack_init_sharing__: (shareScope: string) => Promise<void>;
+declare const __webpack_share_scopes__: { default: Scope };
 
 const App: React.FC<Props> = (props): React.ReactNode => {
     const ref = useRef(null);
@@ -11,14 +19,13 @@ const App: React.FC<Props> = (props): React.ReactNode => {
         SetIsShow(!IsShow);
     }
     useEffect(() => {
-        console.log(NotfoundComponent);
+        import("AngularApp/Notfound").then(async m => {
+            // const factory = window.angularApp.getComponentFactory(MyAngularComponent);
+            console.log(m);
+        })
     },[IsShow]);
     return (
-        <div className='react-todolist'>
-            <NotfoundComponent />
-            {IsShow && <div ref={ref} className='showwww'>Showwwww</div>}
-            <button onClick={OnSetIsShow}>Clicked</button>
-        </div>
+        <div className='react-todolist'></div>
     )
 };
 
