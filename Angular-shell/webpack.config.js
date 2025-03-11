@@ -10,9 +10,6 @@ const { container } = require('webpack');
 module.exports = {
     output: {
         publicPath: "auto",
-        uniqueName: "angular_18_mfe_app",
-        scriptType: "text/javascript",
-        assetModuleFilename: 'images/[hash][ext][query]',
         environment: {
             asyncFunction: true
         }
@@ -40,9 +37,9 @@ module.exports = {
     plugins: [
         new container.ModuleFederationPlugin({
             filename: 'remoteEntry.js',
-            name: 'angular_18_mfe_app',
+            name: 'Angular_shell',
             remotes: {
-                'angular_app_15': 'angular_app_15@http://localhost:3001/remoteEntry.js'
+                'React_remote': 'React_remote@http://localhost:3001/remoteEntry.js'
             },
             shared: {
                 "@angular/core": { singleton: true,eager: true },
