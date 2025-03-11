@@ -8,7 +8,8 @@ import { InputTextModule } from "primeng/inputtext";
     selector: 'search-item',
     imports: [
         InputTextModule
-    ]
+    ],
+    standalone: true
 })
 export class SearchItemComponent {
     

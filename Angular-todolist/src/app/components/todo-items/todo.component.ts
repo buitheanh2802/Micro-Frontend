@@ -19,7 +19,8 @@ import { ButtonModule } from 'primeng/button';
     // styleUrl: './todo.component.scss',
     selector: 'todo-item',
     inputs: [],
-    imports: [NgIf, CheckboxModule, ButtonModule],
+    imports: [],
+    standalone: true
 })
 export class TodoItemComponent {
     constructor() {}

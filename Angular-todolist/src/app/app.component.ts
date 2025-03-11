@@ -24,9 +24,6 @@ import {
 @Component({
     selector: 'app-root',
     imports: [
-        TodoItemComponent,
-        SearchItemComponent,
-        LogoComponent,
         InputTextModule,
         TextareaModule,
         ButtonModule,
