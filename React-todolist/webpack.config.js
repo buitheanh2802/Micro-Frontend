@@ -41,7 +41,15 @@ module.exports = (env, args) => {
                 exposes: {},
                 remotes: {
                     'AngularApp1': 'angular_app_15@http://localhost:3001/remoteEntry.js'
-                }
+                },
+                shared: {
+                    react: {
+                      singleton: true,
+                    },
+                    "react-dom/client": {
+                      singleton: true,
+                    },
+                },
             }),
             !isDev && new CleanWebpackPlugin({
 
@@ -96,6 +104,9 @@ module.exports = (env, args) => {
                 // webSocketURL: 'auto://cms.vietnamnet.vn/ws',
             },
             // proxy: {}
+        },
+        optimization: {
+            splitChunks: false
         }
     }
 }

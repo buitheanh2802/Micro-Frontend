@@ -16,7 +16,7 @@ const Configurations = {
     },
     output: {
         path: path.resolve(__dirname,'./build'),
-        publicPath: 'auto',
+        publicPath: 'http://localhost:3001',
         uniqueName: 'angular_app_15'
     },
     module: {},
@@ -30,10 +30,15 @@ const Configurations = {
             },
             remotes: {},
             shared: {
-                
+                "@angular/core": { singleton: true, eager: true },
+                "@angular/common": { singleton: true, eager: true },
+                "@angular/router": { singleton: true, eager: true },
             }
         })
     ],
+    optimization: {
+        splitChunks: false
+    }
 };
 
 module.exports = Configurations;
