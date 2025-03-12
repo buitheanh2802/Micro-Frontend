@@ -2,8 +2,8 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 
 module.exports = {
   output: {
-    uniqueName: "AngularApp",
-    publicPath: "auto",
+    uniqueName: "Angular_remote",
+    publicPath: "http://localhost:3001/",
     scriptType:'text/javascript'
   },
   optimization: {
@@ -16,23 +16,20 @@ module.exports = {
   },
   devServer: {
     port: 3001,
-    host: '0.0.0.0',
-    allowedHosts: 'all',
-    historyApiFallback: true
+    webSocketServer: false,
+    // host: '0.0.0.0',
+    // allowedHosts: 'all',
+    // historyApiFallback: true
   },
   experiments: {
     // outputModule: true
   },
   plugins: [
     new ModuleFederationPlugin({
-        // library: { type: "module" },
-
-        // For remotes (please adjust)
-        name: "AngularApp",
+        name: "Angular_remote",
         filename: "remoteEntry.js",
         exposes: {
-            
-            './Notfound':'./src/app/modules/admin/notfound.component.ts'
+            './AuthModule':'./src/app/modules/auth/auth.module.ts'
         },
 
         // For hosts (please adjust)
@@ -42,10 +39,9 @@ module.exports = {
         // },
 
         shared: {
-            "@angular/core": { singleton: true },
-            "@angular/common": { singleton: true },
-            "@angular/common/http": { singleton: true },
-            "@angular/router": { singleton: true },
+            "@angular/core": { singleton: true, strictVersion: false },
+            "@angular/common": { singleton: true, strictVersion: false },
+            "@angular/router": { singleton: true, strictVersion: false },
   
           //   ...sharedMappings.getDescriptors()
           }

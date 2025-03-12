@@ -3,14 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular-app-18": {
+    "Angular-shell": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "standalone": false,
-          "viewEncapsulation": "Emulated",
-          "skipTests": true
+          "style": "scss"
         }
       },
       "root": "",
@@ -20,7 +17,7 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/angular-app-18",
+            "outputPath": "dist/angular-shell",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -39,10 +36,7 @@
             ],
             "scripts": [],
             "customWebpackConfig": {
-              "path": "./webpack.config.js",
-              "mergeRules": {
-                "externals": "replace"
-              }
+              "path": "./webpack.config.js"
             }
           },
           "configurations": {
@@ -73,10 +67,10 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Angular-app-18:build:production"
+              "buildTarget": "Angular-shell:build:production"
             },
             "development": {
-              "buildTarget": "Angular-app-18:build:development"
+              "buildTarget": "Angular-shell:build:development"
             }
           },
           "defaultConfiguration": "development"

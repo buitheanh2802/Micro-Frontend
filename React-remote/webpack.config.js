@@ -45,6 +45,10 @@ module.exports = (env, args) => {
                       eager: true
                     }
                 },
+                remotes: {
+                    'Angular_remote': 'Angular_remote@http://localhost:3001/remoteEntry.js',
+                    // 'React_remote': 'React_remote@http://localhost:3002/remoteEntry.js'
+                },
             }),
             !isDev && new CleanWebpackPlugin({
 
@@ -78,7 +82,7 @@ module.exports = (env, args) => {
         },
         devServer: {
             allowedHosts: 'all',
-            port: 3001,
+            port: 3002,
             static: {
                 publicPath: '/',
                 directory: path.resolve(__dirname,'public'),
@@ -101,7 +105,7 @@ module.exports = (env, args) => {
             // proxy: {}
         },
         optimization: {
-           
+            
         }
     }
 }

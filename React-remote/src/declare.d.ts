@@ -1,1 +1,1 @@
-declare module 'AngularApp/*';
+declare module 'Angular_remote/*';

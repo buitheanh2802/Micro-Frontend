@@ -1,1 +1,1 @@
-declare module 'React_remote/*';
+declare module 'Angular_remote/*';

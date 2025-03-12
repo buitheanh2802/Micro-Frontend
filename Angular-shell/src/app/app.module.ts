@@ -1,21 +1,19 @@
-import { NgModule } from "@angular/core";
-import { AppComponent } from "./app.component";
-import { AppRoutingModule } from "./app-routing.module";
-import { BrowserModule } from "@angular/platform-browser";
-import { NzButtonModule } from "ng-zorro-antd/button";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
-    declarations: [
-      AppComponent
-    ],
-    imports: [
-      AppRoutingModule,
-      BrowserModule,
-      NzButtonModule
-    ],
-    providers: [],
-    bootstrap: [
-      AppComponent
-    ]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [
+    
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
