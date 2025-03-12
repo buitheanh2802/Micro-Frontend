@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserModule } from "@angular/platform-browser";
+import { NzButtonModule } from "ng-zorro-antd/button";
 
 @NgModule({
     declarations: [
@@ -9,7 +10,8 @@ import { BrowserModule } from "@angular/platform-browser";
     ],
     imports: [
       AppRoutingModule,
-      BrowserModule
+      BrowserModule,
+      NzButtonModule
     ],
     providers: [],
     bootstrap: [
