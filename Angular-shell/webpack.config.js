@@ -19,7 +19,7 @@ module.exports = {
   },
   devServer: {
     port: 3000,
-    // webSocketServer: false,
+    webSocketServer: false,
     // host: '0.0.0.0',
     // allowedHosts: 'all',
     // historyApiFallback: true

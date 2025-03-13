@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
     {
         path: '',
-        loadChildren: () => import("Angular_remote/AuthModule").then(m => m.AuthModule)
+        loadChildren: () => import("Angular_remote/AuthModule").then(m => m.AuthModule),
+        canActivate: []
     }
 ];
 
