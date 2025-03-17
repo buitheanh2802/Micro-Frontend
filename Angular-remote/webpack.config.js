@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {

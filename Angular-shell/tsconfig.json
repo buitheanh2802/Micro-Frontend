@@ -24,6 +24,11 @@
       "ES2022",
       "dom"
     ],
+<<<<<<< HEAD
+=======
+    "useDefineForClassFields": false,
+    "strictPropertyInitialization": false
+>>>>>>> f653616 (222)
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

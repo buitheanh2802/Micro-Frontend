@@ -1,5 +1,6 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
+
 module.exports = {
   output: {
     uniqueName: "Angular_shell",
@@ -10,7 +11,7 @@ module.exports = {
     }
   },
   optimization: {
-    runtimeChunk: false
+    // runtimeChunk: false
   },
   resolve: {
     // alias: {
@@ -19,7 +20,7 @@ module.exports = {
   },
   devServer: {
     port: 3000,
-    webSocketServer: false,
+    // webSocketServer: 'ws',
     // host: '0.0.0.0',
     // allowedHosts: 'all',
     // historyApiFallback: true
