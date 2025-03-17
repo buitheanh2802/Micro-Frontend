@@ -34,6 +34,7 @@ module.exports = {
         shared: {},
         remotes: {
           'Angular_remote': 'Angular_remote@http://localhost:3001/remoteEntry.js',
+          'React_remote': 'React_remote@http://localhost:3002/remoteEntry.js',
         },
         shared: {
           "@angular/core": { singleton: true,eager: true, strictVersion: false,  },

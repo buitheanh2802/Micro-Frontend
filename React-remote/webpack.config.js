@@ -38,7 +38,9 @@ module.exports = (env, args) => {
             new container.ModuleFederationPlugin({
                 name: 'React_remote',
                 filename: 'remoteEntry.js',
-                exposes: {},
+                exposes: {
+                    './Button': './src/components/Button.tsx'
+                },
                 shared: {
                     react: {
                       singleton: true,

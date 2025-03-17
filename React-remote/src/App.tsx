@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Button from './components/Button';
 
 type Props = {};
 
@@ -12,7 +13,7 @@ const App: React.FC<Props> = (props): React.ReactNode => {
     },[]);
     return (
         <React.Fragment>
-            Hello React App
+            <Button title='Icons' />
         </React.Fragment>
     )
 };
