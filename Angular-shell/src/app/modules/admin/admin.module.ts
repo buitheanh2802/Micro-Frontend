@@ -1,17 +1,26 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    AdminComponent
-  ],
-  imports: [],
-  providers: [
-    
+  declarations: [AdminComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        pathMatch: 'prefix',
+        component: AdminComponent,
+      },
+    ]),
   ],
   exports: [
-    AdminComponent
-  ]
+
+  ],
 })
-export class AdminModule { }
+export class AdminModule {
+  public getComponents() {
+    return AdminComponent;
+  }
+}
