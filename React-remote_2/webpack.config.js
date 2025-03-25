@@ -96,7 +96,7 @@ module.exports = (env, args) => {
         },
         devServer: {
             allowedHosts: 'all',
-            port: 3002,
+            port: 3003,
             static: {
                 publicPath: '/',
                 directory: path.resolve(__dirname,'public'),

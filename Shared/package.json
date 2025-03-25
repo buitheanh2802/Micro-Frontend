@@ -1,0 +1,11 @@
+{
+  "name": "Shared",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "antd": "^5.24.5",
+    "react": "18",
+    "react-dom": "18"
+  }
+}

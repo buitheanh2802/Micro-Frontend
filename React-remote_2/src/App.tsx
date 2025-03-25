@@ -8,7 +8,7 @@ const App: React.FC<Props> = (props): React.ReactNode => {
 
     return (
         <React.Fragment>
-            <Provider prefix={'fhasodfh'}>
+            <Provider prefix={'react-remote-2'}>
                 <Button type='primary'>
                     hello world
                 </Button>
